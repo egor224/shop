@@ -2,10 +2,7 @@ package ru.shop.model;
 
 import javax.persistence.*;
 
-/**
- * User: gkislin
- * Date: 22.08.2014
- */
+
 @MappedSuperclass
 @Access(AccessType.FIELD)
 public class BaseEntity {
