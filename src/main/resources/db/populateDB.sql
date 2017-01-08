@@ -1,24 +1,20 @@
-DELETE FROM user_roles;
-DELETE FROM meals;
-DELETE FROM users;
+DELETE FROM shop;
+DELETE FROM goods;
 ALTER SEQUENCE global_seq RESTART WITH 100000;
 
-INSERT INTO users (name, email, password)
-VALUES ('User', 'user@yandex.ru', 'password');
+INSERT INTO shop (name, addres)
+VALUES ('Магазин N1', 'Москва 111');
 
-INSERT INTO users (name, email, password)
-VALUES ('Admin', 'admin@gmail.com', 'admin');
+INSERT INTO shop (name, addres)
+VALUES ('Магазин N2', 'Москва 222');
 
-INSERT INTO user_roles (role, user_id) VALUES
-  ('ROLE_USER', 100000),
-  ('ROLE_ADMIN', 100001);
+INSERT INTO shop (name, addres)
+VALUES ('Магазин N3', 'Москва 333');
 
-INSERT INTO meals (date_time, description, calories, user_id) VALUES
-  ('2015-05-30 10:00:00', 'Завтрак', 500, 100000),
-  ('2015-05-30 13:00:00', 'Обед', 1000, 100000),
-  ('2015-05-30 20:00:00', 'Ужин', 500, 100000),
-  ('2015-05-31 10:00:00', 'Завтрак', 500, 100000),
-  ('2015-05-31 13:00:00', 'Обед', 1000, 100000),
-  ('2015-05-31 20:00:00', 'Ужин', 510, 100000),
-  ('2015-06-01 14:00:00', 'Админ ланч', 510, 100001),
-  ('2015-06-01 21:00:00', 'Админ ужин', 1500, 100001);
+INSERT INTO goods (name, id_shop) VALUES
+  ('Комп 1', 100000),
+  ('Комп 2', 100000),
+  ('Комп 3', 100000),
+  ('Моник 1', 100001),
+  ('Моник 2', 100001),
+  ('Моник 3', 100001);
