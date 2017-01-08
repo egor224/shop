@@ -3,6 +3,7 @@ package ru.shop.model;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
+import java.util.List;
 
 /**
  * Created by Egor on 07.01.17.
@@ -27,7 +28,18 @@ public class Shop extends BaseEntity {
     @NotEmpty
     private String addres;
 
+    @OneToMany(fetch = FetchType.EAGER)
+    private List<Goods> goods;
+
     public Shop() {
+    }
+
+    public List<Goods> getGoods() {
+        return goods;
+    }
+
+    public void setGoods(List<Goods> goods) {
+        this.goods = goods;
     }
 
     public String getName() {

@@ -9,13 +9,15 @@ import javax.persistence.*;
  */
 @NamedQueries({
         @NamedQuery(name = Goods.DELETE, query = "DELETE FROM Goods u WHERE u.id=:id"),
-        @NamedQuery(name = Goods.ALL_SORTED, query = "SELECT u FROM Goods u  ORDER BY u.name"),
+        @NamedQuery(name = Goods.BY_SHOP, query = "SELECT u FROM Goods u  WHERE u.id=:shop"),
+        @NamedQuery(name = Shop.ALL_SORTED, query = "SELECT u FROM Goods u  ORDER BY u.name"),
 })
 @Entity
 @Table(name = "goods")
 public class Goods extends BaseEntity {
 
     public static final String DELETE = "Goods.delete";
+    public static final String BY_SHOP = "Goods.getByShop";
     public static final String ALL_SORTED = "Goods.getAllSorted";
 
     @Column(name = "name", nullable = false)

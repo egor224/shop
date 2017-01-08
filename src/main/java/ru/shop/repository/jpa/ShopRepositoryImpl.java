@@ -8,6 +8,8 @@ import ru.shop.repository.ShopRepository;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+import java.util.List;
+
 import static ru.shop.model.Shop.*;
 
 /**
@@ -31,6 +33,7 @@ public class ShopRepositoryImpl implements ShopRepository {
         }
     }
 
+    @Transactional
     @Override
     public boolean delete(int id) {
         return  em.createNamedQuery(Shop.DELETE).setParameter("id", id).executeUpdate() != 0;
@@ -39,5 +42,10 @@ public class ShopRepositoryImpl implements ShopRepository {
     @Override
     public Shop get(int id) {
         return em.find(Shop.class, id);
+    }
+
+    @Override
+    public List<Shop> getAll() {
+        return em.createNamedQuery(Shop.ALL_SORTED).getResultList();
     }
 }

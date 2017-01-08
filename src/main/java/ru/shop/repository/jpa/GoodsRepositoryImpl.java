@@ -4,10 +4,12 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 import ru.shop.model.Goods;
 import ru.shop.model.Shop;
+import ru.shop.model.User;
 import ru.shop.repository.GoodsRepository;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import java.util.List;
 
 /**
  * Created by Egor on 07.01.17.
@@ -31,6 +33,7 @@ public class GoodsRepositoryImpl implements GoodsRepository{
     }
 
     @Override
+    @Transactional
     public boolean delete(int id) {
         return em.createNamedQuery(Goods.DELETE).setParameter("id", id).executeUpdate() != 0;
     }
@@ -41,7 +44,12 @@ public class GoodsRepositoryImpl implements GoodsRepository{
     }
 
     @Override
-    public Goods getByShop(Shop shop) {
-        return null;
+    public List<Goods> getByShop(Shop shop) {
+        return em.createNamedQuery(Goods.BY_SHOP).setParameter("shop", shop).getResultList();
+    }
+
+    @Override
+    public List<Goods> getAll() {
+        return em.createNamedQuery(Goods.ALL_SORTED).getResultList();
     }
 }
