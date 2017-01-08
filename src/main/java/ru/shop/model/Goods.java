@@ -10,7 +10,7 @@ import javax.persistence.*;
 @NamedQueries({
         @NamedQuery(name = Goods.DELETE, query = "DELETE FROM Goods u WHERE u.id=:id"),
         @NamedQuery(name = Goods.BY_SHOP, query = "SELECT u FROM Goods u  WHERE u.id=:shop"),
-        @NamedQuery(name = Shop.ALL_SORTED, query = "SELECT u FROM Goods u  ORDER BY u.name"),
+        @NamedQuery(name = Goods.ALL_SORTED, query = "SELECT u FROM Goods u  ORDER BY u.name"),
 })
 @Entity
 @Table(name = "goods")

@@ -10,7 +10,7 @@ import java.util.List;
  */
 @NamedQueries({
         @NamedQuery(name = Shop.DELETE, query = "DELETE FROM Shop u WHERE u.id=:id"),
-        @NamedQuery(name = Shop.ALL_SORTED, query = "SELECT u FROM Shop u  ORDER BY u.name"),
+        @NamedQuery(name = Shop.ALL, query = "SELECT u FROM Shop u  ORDER BY u.name"),
 })
 
 @Entity
@@ -18,7 +18,7 @@ import java.util.List;
 public class Shop extends BaseEntity {
 
     public static final String DELETE = "Shop.delete";
-    public static final String ALL_SORTED = "Shop.getAllSorted";
+    public static final String ALL = "Shop.getAllSorted";
 
     @Column(name = "name", nullable = false)
     @NotEmpty
@@ -28,10 +28,16 @@ public class Shop extends BaseEntity {
     @NotEmpty
     private String addres;
 
-    @OneToMany(fetch = FetchType.EAGER)
+    @OneToMany(fetch = FetchType.LAZY)
     private List<Goods> goods;
 
     public Shop() {
+    }
+
+    public Shop(Integer id, String name, String addres) {
+        super(id);
+        this.name = name;
+        this.addres = addres;
     }
 
     public List<Goods> getGoods() {

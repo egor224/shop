@@ -4,7 +4,7 @@ import ru.shop.model.Goods;
 import ru.shop.model.Shop;
 import ru.shop.util.exception.NotFoundException;
 
-import java.util.Collection;
+import java.util.List;
 
 /**
  * Created by Egor on 08.01.17.
@@ -14,9 +14,9 @@ public interface GoodsService {
 
     void delete(int id) throws NotFoundException;
 
-    Collection<Goods> getAll();
+    List<Goods> getAll();
 
-    Collection<Goods> getByShop(Shop shop);
+    List<Goods> getByShop(Shop shop);
 
     Goods update(Goods goods) throws NotFoundException;
 

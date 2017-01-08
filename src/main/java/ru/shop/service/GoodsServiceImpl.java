@@ -9,7 +9,7 @@ import ru.shop.repository.GoodsRepository;
 import ru.shop.util.ValidationUtil;
 import ru.shop.util.exception.NotFoundException;
 
-import java.util.Collection;
+import java.util.List;
 
 /**
  * Created by Egor on 08.01.17.
@@ -31,12 +31,12 @@ public class GoodsServiceImpl implements GoodsService {
     }
 
     @Override
-    public Collection<Goods> getAll() {
+    public List<Goods> getAll() {
         return repository.getAll();
     }
 
     @Override
-    public Collection<Goods> getByShop(Shop shop) {
+    public List<Goods> getByShop(Shop shop) {
         return repository.getByShop(shop);
     }
 

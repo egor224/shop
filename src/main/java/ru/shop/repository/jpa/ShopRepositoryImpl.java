@@ -46,6 +46,6 @@ public class ShopRepositoryImpl implements ShopRepository {
 
     @Override
     public List<Shop> getAll() {
-        return em.createNamedQuery(Shop.ALL_SORTED).getResultList();
+        return em.createNamedQuery(Shop.ALL).getResultList();
     }
 }

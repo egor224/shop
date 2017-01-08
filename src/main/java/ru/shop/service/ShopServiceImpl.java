@@ -8,7 +8,7 @@ import ru.shop.repository.ShopRepository;
 import ru.shop.util.ValidationUtil;
 import ru.shop.util.exception.NotFoundException;
 
-import java.util.Collection;
+import java.util.List;
 
 /**
  * Created by Egor on 08.01.17.
@@ -30,7 +30,7 @@ public class ShopServiceImpl implements ShopService {
     }
 
     @Override
-    public Collection<Shop> getAll() {
+    public List<Shop> getAll() {
         return repository.getAll();
     }
 

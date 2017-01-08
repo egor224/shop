@@ -8,7 +8,7 @@
     </appender>
 
     <logger name="org.springframework.jdbc" level="debug"/>
-    <logger name="ru.javawebinar.topjava" level="debug"/>
+    <logger name="ru.shop.topjava" level="debug"/>
 
     <root level="WARN">
         <appender-ref ref="console"/>
